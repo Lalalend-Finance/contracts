@@ -6,6 +6,7 @@ require("@nomicfoundation/hardhat-chai-matchers");
 
 
 /** @type import('hardhat/config').HardhatUserConfig */
+require('dotenv').config({path:__dirname+'/.env'})
 
 const DEPLOYER_PRIVATE_KEY = process.env.PRIVATE_KEY;
 
