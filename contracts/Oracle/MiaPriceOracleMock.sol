@@ -28,9 +28,10 @@ contract MiaPriceOracleMock is PriceOracle {
 
     function getUnderlyingPrice(NToken nToken) public view returns (uint) {
         string memory symbol = nToken.symbol();
-        if (compareStrings(symbol, "nEVMOS")) {
+        /*if (compareStrings(symbol, "nEVMOS")) {
             return getChainlinkPrice(getFeed(symbol));
-        } else if (compareStrings(symbol, "SEB")) {
+        } else*/ 
+        if (compareStrings(symbol, "SEB")) {
             return SEB_VALUE;
         } else if (compareStrings(symbol, "MIA")) {
             return prices[address(nToken)];

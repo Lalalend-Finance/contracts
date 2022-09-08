@@ -392,7 +392,7 @@ contract Comptroller is ComptrollerV8Storage, ComptrollerInterfaceG2, Comptrolle
             if (err != Error.NO_ERROR) {
                 return uint(err);
             }
-        }
+        }  
 
         if (oracle.getUnderlyingPrice(NToken(nToken)) == 0) {
             return uint(Error.PRICE_ERROR);
