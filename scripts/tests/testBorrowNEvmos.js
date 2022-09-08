@@ -27,26 +27,13 @@ async function main() {
     // TRYING TO DEBUG BORROW FUNC ...
     const amount = await ethers.utils.parseEther("3");
     //const allowed = await unitroller.borrowAllowed("0xfaa9Bb1E7602AB9A9aAea86cCcbB6B3ddeAbbc54", "0xE3678E00F1a669EBDCb146c66DbD43dBb2f4A1d9", amount)
-    //const data = "0xda3d454c000000000000000000000000faa9bb1e7602ab9a9aaea86cccbb6b3ddeabbc54000000000000000000000000e3678e00f1a669ebdcb146c66dbd43dbb2f4a1d900000000000000000000000000000000000000000000000029a2241af62c0000"
-    //const dataS = await ethers.utils.defaultAbiCoder.decode(['uint256'], ethers.utils.hexDataSlice(data, 1))
     //console.log('is allowed ? : ' + JSON.stringify(allowed));
-   // console.log(dataS);
-    //const enoughCash = await nevmos.getCash();
-    //console.log(' has enough cash ? : ' + enoughCash);
-    //const TestNael = await ethers.getContractFactory("TestNael");
-    //const testNael = await TestNael.attach("0xed15Bf27df70B98625414b5E651f10EFB4589Ed8");
+    const enoughCash = await nevmos.getCash();
+    console.log(' has enough cash ? : ' + enoughCash);
 
-    //const res = await testNael.isAllowed("0xfaa9Bb1E7602AB9A9aAea86cCcbB6B3ddeAbbc54", "0xE3678E00F1a669EBDCb146c66DbD43dBb2f4A1d9", amount);
-    //console.log("res from TEST is : ", res);
-    //const isInside = await unitroller.markets("0xfaa9Bb1E7602AB9A9aAea86cCcbB6B3ddeAbbc54");
-    //const Oracle = await ethers.getContractFactory("PriceOracle");
-    //const oracle = await Oracle.attach("0xd928133afE68dB739b322C38e8B895a3686E4597");
-    //const resStored = await nevmos.borrowBalanceStored("0xE3678E00F1a669EBDCb146c66DbD43dBb2f4A1d9");
-    //console.log('balance stored result : '+ resStored);
-    
-    //const price = await oracle.getUnderlyingPrice("0xfaa9Bb1E7602AB9A9aAea86cCcbB6B3ddeAbbc54");
-
-    //console.log(price);
+    const result = await nevmos.getAccountSnapshot("0xE3678E00F1a669EBDCb146c66DbD43dBb2f4A1d9");
+    const {0: a, 1: b,2: c,3:d} = result
+    console.log(a, b, c, d);
     //await unitroller._setMarketSupplyCaps(["0x5fF141cd9fb7A3137d43f3116F99a78Ab46FE5e4"], [ethers.utils.parseEther('1000')]);
   
     /*const supplyCap = await unitroller.supplyCaps("0xfaa9Bb1E7602AB9A9aAea86cCcbB6B3ddeAbbc54");
@@ -72,13 +59,13 @@ async function main() {
     
     /*console.log("Attempting to borrow evmos tokens ");
     
-    await nevmos.borrow(ethers.utils.parseEther("3"), {
-        gasLimit: 1000000,
-      });
+    await nevmos.borrow(amount);
 
     nevmos.on("Borrow", (borrower, borrowAmount, accountBorrowsNew, totalBorrowsNew) => {
         console.log(borrower, borrowAmount, accountBorrowsNew, totalBorrowsNew);
     })*/
+    const res = await nevmos.totalBorrows();
+    console.log("total borrows for evmos : " + res);
     //console.log("Attempting to borrow evmos tokens ");
     
     //await nevmosNew.borrow(ethers.utils.parseEther("0.012"));
