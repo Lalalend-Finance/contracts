@@ -843,7 +843,7 @@ contract NToken is NTokenInterface, Exponential, TokenErrorReporter {
         uint accountBorrowsNew;
         uint totalBorrowsNew;
     }
-
+ 
     /** 
       * @notice Users borrow assets from the protocol to their own address
       * @param borrowAmount The amount of the underlying asset to borrow

@@ -19,6 +19,8 @@ async function main() {
   // proxy address inside attach function
   const unitroller = await Comptroller.attach("0x75eBe50E115bBe9F0399bab18Fe4719b7409c488");
 
+  await unitroller.exitMarket("0x5fF141cd9fb7A3137d43f3116F99a78Ab46FE5e4");
+  /*
   const sebController = await unitroller.sebController();
   const liquidatorContract = await unitroller.liquidatorContract();
   const comptrollerLens = await unitroller.comptrollerLens();
@@ -52,7 +54,7 @@ async function main() {
   //console.log("collateralFactorMantissa : "+ collateralFactorMantissa);
   console.log("liquidationIncentiveMantissa : "+ liquidationIncentiveMantissa);
   console.log("closeFactorMantissa : "+ closeFactorMantissa);
-
+*/
 
 }
 
